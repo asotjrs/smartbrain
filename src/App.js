@@ -27,7 +27,12 @@ class App extends Component{
         const image=document.getElementById('inputImage');
         const width=Number(image.width);
         const height=Number(image.height);
-        console.log(width,height)
+        return {
+           columnRight:width-(clarifaiFace.right_col * width),
+           columnLeft:clarifaiFace.left_col * width,
+           rowBottom: height-(clarifaiFace.bottom_row *height),
+            rowTop: clarifaiFace.top_row * height
+        }
     };
     constructor(){
         super();
