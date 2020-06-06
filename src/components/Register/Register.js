@@ -8,7 +8,7 @@ const Register=({onRouteChange})=>{
             <main className="pa4 black-80">
                 <form className="measure ">
                     <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-                        <legend className="f4 fw6 ph0 mh0">Sign In</legend>
+                        <legend className="f4 fw6 ph0 mh0">Register</legend>
 
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="Name">Name</label>
@@ -28,10 +28,10 @@ const Register=({onRouteChange})=>{
                     </fieldset>
                     <div className="">
                         <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                               onClick={()=>onRouteChange('home')}   type="submit" value="Register"/>
+                               onClick={()=>{onRouteChange('home') }}   type="submit" value="Register"/>
                     </div>
                     <div className="lh-copy mt3">
-                        <a href="#0" className="f6 link dim black db">Sign In</a>
+                        <p onClick={()=>onRouteChange('signin')}   className="f6 link dim black db pointer">Sign In</p>
                     </div>
                 </form>
             </main>
