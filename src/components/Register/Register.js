@@ -3,6 +3,7 @@ import React from "react";
 
 
 const Register=({onRouteChange})=>{
+
     return<div>
         <article className="br3 ba shadow-5  b--black-10 mv4 w-100 w-50-m w-25-l mw6 center">
             <main className="pa4 black-80">
