@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import 'tachyons';
 
 ReactDOM.render(
-
-    <App />
-  ,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>  ,
   document.getElementById('root')
 );
 
