@@ -129,7 +129,7 @@ class App extends Component{
           {
               route==='home' ? <div>
                   <Logo/>
-                  <Rank name={this.state.user.name} entries={this.state.user.entries} />
+                  <Rank  entries={this.state.user.entries} name={this.state.user.name}  />
                   <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
                   <FaceRecognition box={box} imgUrl={imgUrl} />
                   </div>: (
