@@ -40,6 +40,8 @@ class App extends Component{
       this.setState({box:box});
 
     };
+
+
     constructor(){
         super();
         this.state={
@@ -73,7 +75,7 @@ class App extends Component{
                 joined:data.joined
 
             }
-        });
+        })
 
     };
     onButtonSubmit=()=>{
@@ -126,10 +128,10 @@ class App extends Component{
           <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} />
           {
               route==='home' ? <div>
-                      <Logo/>
-                      <Rank actualUser={this.actualUser()}/>
-                      <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
-                      <FaceRecognition box={box} imgUrl={imgUrl} />
+                  <Logo/>
+                  <Rank name={this.state.user.name} entries={this.state.user.entries} />
+                  <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+                  <FaceRecognition box={box} imgUrl={imgUrl} />
                   </div>: (
                     route==='signin' ?  <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
                      : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}  />
