@@ -75,7 +75,7 @@ class App extends Component{
                 joined:data.joined
 
             }
-        })
+        });
 
     };
     onButtonSubmit=()=>{
@@ -89,7 +89,8 @@ class App extends Component{
                        body: JSON.stringify({id: this.state.user.id})
 
                    }).then(
-                       response => {response.json()}
+                       response => {response.json();
+                       }
                    ).then(data => {
 
                       this.setState(Object.assign({},this.state.user,data));
@@ -99,7 +100,7 @@ class App extends Component{
 
                this.displayFaceBox(this.calculateFaceLocation(response) );
            }
-        ).catch(err=>console.log(err));
+        ).catch(err=>console.log("there has been some error so we cant send your request"));
     };
     onRouteChange=(route)=>{
 

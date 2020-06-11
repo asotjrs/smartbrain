@@ -24,10 +24,12 @@ class Register extends Component{
 
         }).then(response=>response.json()).then(user=>{
            if(user){
-               this.props.loadUser(user);
-               this.props.onRouteChange('home') ;
+               this.props.loadUser(user[0]);
+               this.props.onRouteChange('home');
 
            }
+
+
         });
 
      };

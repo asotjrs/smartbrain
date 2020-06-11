@@ -4,13 +4,14 @@ import React from "react";
 const Rank  =({entries,name})=>{
 
 
-        return <div>
+        return <div  className={'Rank'}>
             <div className={'white f3'} >
                 {name+' your current rank is......'}
             </div>
 
             <div className={'white f1'} >
                 { entries}
+                {console.log(entries,name)}
             </div>
 
         </div>;
