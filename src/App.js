@@ -117,9 +117,11 @@ class App extends Component{
 
 
     };
-    actualUser=()=>{
-      return this.state.user;
-    };
+  componentDidMount() {
+        if(this.state.route==='home')
+            window.location.reload();
+  }
+
     render (){
       const {isSignedIn,route,imgUrl,box}=this.state;
       return (<div className="App">

@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Rank/Rank.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Rank/Rank.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Signin/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Signin/SignIn.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +102,7 @@
       <workItem from="1591560248826" duration="13768000" />
       <workItem from="1591635760166" duration="17905000" />
       <workItem from="1591739024528" duration="9228000" />
-      <workItem from="1591811143661" duration="10505000" />
+      <workItem from="1591811143661" duration="13361000" />
     </task>
     <servers />
   </component>
