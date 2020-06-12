@@ -23,6 +23,21 @@ const params={
       }
   }
 };
+const initialState={
+    input:'',
+    imgUrl:'',
+    box:{},
+    route:'signin',
+    isSignedIn:false,
+    user:{
+        id:'',
+        name:'',
+        email:'',
+        entries:0,
+        joined:''
+
+    }
+};
 class App extends Component{
     calculateFaceLocation=(data)=>{
         const clarifaiFace=data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -42,23 +57,9 @@ class App extends Component{
     };
 
 
-    constructor(){
+    constructor() {
         super();
-        this.state={
-            input:'',
-            imgUrl:'',
-            box:{},
-            route:'signin',
-            isSignedIn:false,
-            user:{
-                id:'',
-                name:'',
-                email:'',
-                entries:0,
-                joined:''
-
-            }
-        }
+        this.state = initialState;
     }
      onInputChange=(event)=>{
         this.setState({
@@ -95,7 +96,7 @@ class App extends Component{
 
                       this.setState(Object.assign({},this.state.user,data));
 
-                   });
+                   }).catch(console.log);
                }
 
                this.displayFaceBox(this.calculateFaceLocation(response) );
@@ -105,7 +106,7 @@ class App extends Component{
     onRouteChange=(route)=>{
 
         if(route==='signout'){
-            this.setState({isSignedIn:false});
+            this.setState(initialState);
 
         }
        else if(route==='home'){
@@ -114,9 +115,8 @@ class App extends Component{
         }
 
      this.setState({route:route});
-
-
     };
+
   componentDidMount() {
         if(this.state.route==='home')
             window.location.reload();

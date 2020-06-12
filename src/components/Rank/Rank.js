@@ -9,10 +9,7 @@ const Rank  =({entries,name})=>{
                 {name+' your current rank is......'}
             </div>
 
-            <div  className={'white f1'} >
-                { entries}
-                {console.log(entries,name)}
-            </div>
+                 <div className={'white f1'}>{entries} </div>
 
         </div>;
 

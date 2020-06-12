@@ -11,7 +11,17 @@ class Register extends Component{
             password:''
         }
     }
+    onNameChange=(event)=>{
+        this.setState({name:event.target.value}) ;
+    };
 
+    onPasswordChange=(event)=>{
+        this.setState({password:event.target.value})
+
+    };
+    onEmailChange=(event)=>{
+        this.setState({email:event.target.value})
+    };
      onSubmitRegister=()=>{
         fetch('http://localhost:3000/register',{
             method:'post',
@@ -19,33 +29,24 @@ class Register extends Component{
             body:JSON.stringify({
                 name:this.state.name,
                 email:this.state.email,
-                password:this.state
+                password:this.state.password
             })
 
         }).then(response=>response.json()).then(user=>{
-           if(user.id){
-               console.log(user);
+            console.log(user);
+
+            if(user){
                this.props.loadUser(user);
 
            }
 
 
-        });
+        }).catch(console.log);
          this.props.onRouteChange('home');
 
 
      };
-    onNameChange=(event)=>{
-      this.setState({name:event.target.value}) ;
-    };
 
-    onPasswordChange=(event)=>{
-      this.setState({password:event.target.value})
-
-    };
-    onEmailChange=(event)=>{
-      this.setState({email:event.target.value})
-    };
     render(){
 
         return<div>
