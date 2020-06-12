@@ -23,26 +23,28 @@ class Register extends Component{
         this.setState({email:event.target.value})
     };
      onSubmitRegister=()=>{
+         const {name,email,password}=this.state;
+
         fetch('http://localhost:3000/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
-                name:this.state.name,
-                email:this.state.email,
-                password:this.state.password
+                name:name,
+                email:email,
+                password:password
             })
 
         }).then(response=>response.json()).then(user=>{
             console.log(user);
 
-            if(user){
+            if(user.id){
                this.props.loadUser(user);
+                this.props.onRouteChange('home');
 
-           }
+            }
 
 
         }).catch(console.log);
-         this.props.onRouteChange('home');
 
 
      };

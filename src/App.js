@@ -90,11 +90,11 @@ class App extends Component{
                        body: JSON.stringify({id: this.state.user.id})
 
                    }).then(
-                       response => {response.json();
-                       }
+                       response => response.json()
                    ).then(data => {
+                       console.log(data);
 
-                      this.setState(Object.assign({},this.state.user,data));
+                       this.setState(Object.assign(this.state.user,data));
 
                    }).catch(console.log);
                }
@@ -136,8 +136,9 @@ class App extends Component{
                   <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
                   <FaceRecognition box={box} imgUrl={imgUrl} />
                   </div>: (
-                    route==='signin' ?  <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-                     : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}  />
+                    route==='register' ? <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}  />
+                    : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+
               )
           }
 
