@@ -24,7 +24,7 @@ const initialState={
     input:'',
     imgUrl:'',
     box:{},
-    route:'signin',
+    route:'home',
     isSignedIn:false,
     user:{
         id:'',
@@ -122,8 +122,7 @@ class App extends Component{
     };
 
   componentDidMount() {
-        if(this.state.route==='home')
-            window.location.reload();
+      
   }
 
     render (){
