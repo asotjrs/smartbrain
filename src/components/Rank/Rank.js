@@ -11,6 +11,8 @@ const Rank  =({entries,name})=>{
             <div className='white f1'>
                 {entries}
             </div>
+            <p>Register to start your count ! </p>
+
         </div>;
 
 
