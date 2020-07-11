@@ -23,7 +23,7 @@ const params={
 const initialState={
     input:'',
     imgUrl:'',
-    box:{},
+    boxes:[],
     route:'home',
     isSignedIn:false,
     user:{
@@ -36,20 +36,24 @@ const initialState={
     }
 };
 class App extends Component{
-    calculateFaceLocation=(data)=>{
-        const clarifaiFace=data.outputs[0].data.regions[0].region_info.bounding_box;
-        const image=document.getElementById('inputImage');
-        const width=Number(image.width);
-        const height=Number(image.height);
-        return {
-           columnRight:width-(clarifaiFace.right_col * width),
-           columnLeft:clarifaiFace.left_col * width,
-           rowBottom: height-(clarifaiFace.bottom_row *height),
-            rowTop: clarifaiFace.top_row * height
-        }
+    calculateFacesLocations=(data)=>{
+        return data.outputs[0].data.regions.map(face=>{
+            const clarifaiFace=face.region_info.bounding_box;
+
+            const image=document.getElementById('inputImage');
+            const width=Number(image.width);
+            const height=Number(image.height);
+            return {
+                columnRight:width-(clarifaiFace.right_col * width),
+                columnLeft:clarifaiFace.left_col * width,
+                rowBottom: height-(clarifaiFace.bottom_row *height),
+                rowTop: clarifaiFace.top_row * height
+            }
+        });
+
     };
-    displayFaceBox=(box)=>{
-      this.setState({box:box});
+    displayFaceBox=(boxes)=>{
+      this.setState({boxes:boxes});
 
     };
 
@@ -76,6 +80,7 @@ class App extends Component{
         });
 
     };
+
     onButtonSubmit=()=>{
         this.setState({imgUrl:this.state.input});
         fetch('https://arcane-sea-29435.herokuapp.com/imageUrl',{
@@ -86,7 +91,6 @@ class App extends Component{
         }).then(result=>result.json())
         .then(
            response=> {
-               console.log(response);
                if (response){
                    fetch('https://arcane-sea-29435.herokuapp.com/image', {
                        method: 'put',
@@ -95,15 +99,14 @@ class App extends Component{
 
                    }).then(
                        response => response.json()
-                   ).then(data => {
-                       console.log(data);
+                   ).then(count => {
 
-                       this.setState(Object.assign(this.state.user,data));
+                       this.setState(Object.assign(this.state.user,{entries:count}));
 
                    }).catch(console.log);
                }
 
-               this.displayFaceBox(this.calculateFaceLocation(response) );
+               this.displayFaceBox(this.calculateFacesLocations(response) );
            }
         ).catch(err=>console.log("there has been some error so we cant send your request"));
     };
@@ -121,12 +124,10 @@ class App extends Component{
      this.setState({route:route});
     };
 
-  componentDidMount() {
-      
-  }
+
 
     render (){
-      const {isSignedIn,route,imgUrl,box}=this.state;
+      const {isSignedIn,route,imgUrl,boxes}=this.state;
       return (<div className="App">
 
           <Particles className={'particles'}
@@ -137,7 +138,7 @@ class App extends Component{
                   <Logo/>
                   <Rank  entries={this.state.user.entries} name={this.state.user.name}  />
                   <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
-                  <FaceRecognition box={box} imgUrl={imgUrl} />
+                  <FaceRecognition boxes={boxes} imgUrl={imgUrl} />
                   </div>: (
                     route==='register' ? <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}  />
                     : <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
