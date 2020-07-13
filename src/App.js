@@ -121,13 +121,12 @@ class App extends Component{
 
         }
 
-     this.setState({route:route});
+        this.setState({...this.state, route: route});
     };
 
 
 
     render (){
-        alert(this.state.route)
       const {isSignedIn,route,imgUrl,boxes}=this.state;
       return (<div className="App">
 
