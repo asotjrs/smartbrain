@@ -24,7 +24,7 @@ const initialState={
     input:'',
     imgUrl:'',
     boxes:[],
-    route:'home',
+    route:'signin',
     isSignedIn:false,
     user:{
         id:'',
@@ -110,6 +110,7 @@ class App extends Component{
            }
         ).catch(err=>console.log("there has been some error so we cant send your request"));
     };
+
     onRouteChange=(route)=>{
 
         if(route==='signout'){
