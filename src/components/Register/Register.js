@@ -38,7 +38,7 @@ class Register extends Component{
 
             if(user.id){
                this.props.loadUser(user);
-                this.props.onRouteChange('home');
+               this.props.onRouteChange('home');
 
             }
 
@@ -84,5 +84,5 @@ class Register extends Component{
         </div>
     }
 
-};
+}
 export default Register;
