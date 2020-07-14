@@ -117,7 +117,7 @@ class App extends Component{
 
         }
        else if(route==='signout'){
-            this.setState(initialState);
+           return  this.setState(initialState);
 
         }
 
