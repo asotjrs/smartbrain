@@ -112,19 +112,24 @@ class App extends Component{
     };
 
     onRouteChange=(route)=>{
-        if(route==='home'){
-            this.setState({isSignedIn:true});
+        if(route==='signout'){
+            return this.setState(initialState);
+
 
         }
-       else if(route==='signout'){
-           return  this.setState(initialState);
+       else if(route==='home'){
+           alert("i'm in home nowwwwwwwwwww")
+            this.setState({isSignedIn:true});
 
         }
 
         this.setState({...this.state, route: route});
+       alert("the state after setting it to home is "+this.state.route)
     };
 
-
+    componentDidMount() {
+        alert("the final state now is "+this.state.route)
+    }
 
     render (){
       const {isSignedIn,route,imgUrl,boxes}=this.state;
