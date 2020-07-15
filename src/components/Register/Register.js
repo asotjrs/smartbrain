@@ -34,7 +34,10 @@ class Register extends Component{
                 password:this.state.password
             })
 
-        }).then(response=> response.json()).then(user=>{
+        }).then(response=> {
+            console.log(response);
+            alert("response is about to be turned to json");
+            return response.json()}).then(user=>{
             console.log(user);
                     alert(user);
             if(user.id){
