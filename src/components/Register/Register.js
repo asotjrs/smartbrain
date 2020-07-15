@@ -36,7 +36,8 @@ class Register extends Component{
             })
 
         }).then(response=>response.json()).then(user=>{
-
+            console.log(user);
+                    alert(user);
             if(user.id){
                 alert("loading user and changin rout")
                this.props.loadUser(user);

@@ -126,9 +126,7 @@ class App extends Component{
 
     };
 
-    componentDidMount() {
-        alert("the final state now is "+this.state.route)
-    }
+
 
     render (){
       const {isSignedIn,route,imgUrl,boxes}=this.state;
