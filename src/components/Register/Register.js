@@ -35,7 +35,7 @@ class Register extends Component{
                 password:password
             })
 
-        }).then(response=>response.json()).then(user=>{
+        }).then(response=>{response.json()}).then(user=>{
             console.log(user);
                     alert(user);
             if(user.id){
