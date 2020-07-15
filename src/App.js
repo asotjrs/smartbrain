@@ -118,13 +118,12 @@ class App extends Component{
 
         }
        else if(route==='home'){
-           alert("i'm in home nowwwwwwwwwww")
             this.setState({isSignedIn:true});
 
         }
-
         this.setState({...this.state, route: route});
-       alert("the state after setting it to home is "+this.state.route)
+
+
     };
 
     componentDidMount() {

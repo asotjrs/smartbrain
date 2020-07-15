@@ -22,6 +22,7 @@ class Register extends Component{
     onEmailChange=(event)=>{
         this.setState({email:event.target.value})
     };
+
      onSubmitRegister=()=>{
          const {name,email,password}=this.state;
 
@@ -37,8 +38,10 @@ class Register extends Component{
         }).then(response=>response.json()).then(user=>{
 
             if(user.id){
+                alert("loading user and changin rout")
                this.props.loadUser(user);
                this.props.onRouteChange('home');
+                alert("end of loading user and route")
 
             }
 
