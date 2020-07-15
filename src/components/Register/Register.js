@@ -24,22 +24,21 @@ class Register extends Component{
     };
 
      onSubmitRegister=()=>{
-         const {name,email,password}=this.state;
 
         fetch('https://arcane-sea-29435.herokuapp.com/register',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({
-                name:name,
-                email:email,
-                password:password
+                name:this.state.name,
+                email:this.state.email,
+                password:this.state.password
             })
 
-        }).then(response=>{response.json()}).then(user=>{
+        }).then(response=> response.json()).then(user=>{
             console.log(user);
                     alert(user);
             if(user.id){
-                alert("loading user and changin rout")
+                alert("loading user and changin rout");
                this.props.loadUser(user);
                this.props.onRouteChange('home');
                 alert("end of loading user and route")
