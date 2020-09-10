@@ -12,18 +12,18 @@ class Register extends React.Component {
 
     onNameChange = (event) => {
         this.setState({name: event.target.value})
-    }
+    };
 
     onEmailChange = (event) => {
         this.setState({email: event.target.value})
-    }
+    };
 
     onPasswordChange = (event) => {
         this.setState({password: event.target.value})
-    }
+    };
 
     onSubmitSignIn = () => {
-        fetch('http://localhost:3000/register', {
+        fetch('https://arcane-sea-29435.herokuapp.com/register', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -42,7 +42,7 @@ class Register extends React.Component {
 
                 }
             })
-    }
+    };
 
     render() {
         return (
